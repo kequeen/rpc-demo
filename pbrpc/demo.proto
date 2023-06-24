@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "./demo";
+
+package demo;
+
+message MyMessage {
+    string name = 1;
+    int32 age = 2;
+}
+
+service MyService {
+    rpc MyMethod(MyMessage) returns (MyMessage);
+}
