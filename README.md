@@ -11,9 +11,10 @@ protoc --go_out=. --go-grpc_out=. demo.proto
 客户端代码：生成一个用于与 gRPC 服务端进行通信的客户端代码。客户端代码提供了与服务端相匹配的方法，用于发送请求并接收响应。
 注册代码：生成一个用于将服务实现注册到 gRPC 服务器的函数，通常是以 Register[ServiceName]Server 的形式命名。这个注册函数需要传入 gRPC 服务器对象和服务实现对象，以建立服务端的 RPC 服务。
 
+生成代码需要安装protoc-gen-go 和 protoc-gen-go-grpc 插件
+
 ### 关于pb
 全称 Protocol Buffers，
 ```
 Protocol Buffers（简称：ProtoBuf）是一种开源跨平台的序列化数据结构的协议。其对于存储资料或在网络上进行通信的程序是很有用的。这个方法包含一个接口描述语言，描述一些数据结构，并提供程序工具根据这些描述产生代码，这些代码将用来生成或解析代表这些数据结构的字节流。
 ``` 
-
