@@ -8,24 +8,22 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-func main() {
+func testUnmarshalString() {
 	// 定义 JSON 数据
 	jsonData := `{"name": "John", "age": 30}`
-
-	// 创建 PB 消息对象
+	// 创建 结构体
 	pbMessage := &MyMessage{}
 
-	// 将 JSON 转换为 PB
+	// 将 JSON 转换为 结构体
 	err := jsonpb.UnmarshalString(jsonData, pbMessage)
 	if err != nil {
 		log.Fatalf("Error while unmarshaling JSON: %v", err)
 	}
-
-	// 打印 PB 对象
+	// 打印结构体对象
 	fmt.Println(pbMessage)
 }
 
-// 定义 PB 消息类型
+// 定义反序列化的golang结构体， 使用Protocol Buffers（protobuf）的标记格式指定了字段的序列化和反序列化规则。
 type MyMessage struct {
 	Name string `protobuf:"bytes,1,name=name"`
 	Age  int32  `protobuf:"varint,2,name=age"`
